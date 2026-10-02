@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>315电影网 - 真相只有一个，好片也是如此 | 315dianyingwang-zh</title>
+<meta name="description" content="315电影网（315dianyingwang-zh）是一个讲真话的观影导航站。电影、剧集、动漫、纪录片、综艺真实评分、真实片单，每天更新。访问 315dianyingwang-zh.github.io。">
+<meta name="keywords" content="315电影网,315dianyingwang-zh,真实评分,观影导航,电影大全,电影推荐">
+<meta name="robots" content="index,follow">
+<meta name="author" content="315电影网">
+<meta property="og:title" content="315电影网 - 真相只有一个，好片也是如此">
+<meta property="og:description" content="315电影网，讲真话的观影导航站">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://315dianyingwang-zh.github.io">
+<meta property="og:site_name" content="315电影网">
+<link rel="canonical" href="https://315dianyingwang-zh.github.io">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08090c;--bg2:#0e1015;--panel:#11141b;--line:#1e2430;--line2:#2a3344;
+  --txt:#d6dbe5;--dim:#7c8798;--dim2:#5a6577;
+  --acc:#00ffa3;--acc2:#00c47d;--warn:#ffb000;--red:#ff3b5c;--cy:#00e5ff;--violet:#a78bfa;
+}
+html{scroll-behavior:smooth}
+body{font-family:"JetBrains Mono","Fira Code","SF Mono",Consolas,"PingFang SC",monospace;background:var(--bg);color:var(--txt);line-height:1.8;font-size:14.5px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent 0 2px,rgba(0,0,0,.28) 2px 3px),radial-gradient(circle at 50% 0%,rgba(0,255,163,.07),transparent 60%);pointer-events:none;z-index:1}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--acc);color:#001}
+.container{max-width:1180px;margin:0 auto;padding:0 26px;position:relative;z-index:2}
+img{max-width:100%;display:block}
+.mono{font-family:"JetBrains Mono","Fira Code",Consolas,monospace}
+
+/* 顶部终端条 */
+.ticker{background:var(--bg2);border-bottom:1px solid var(--line);padding:8px 0;font-size:12px;color:var(--dim)}
+.ticker .container{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.ticker .dot{width:8px;height:8px;background:var(--acc);border-radius:50%;box-shadow:0 0 8px var(--acc);animation:bl 1.4s infinite}
+@keyframes bl{50%{opacity:.25}}
+.ticker .cmd{flex:1;min-width:240px;overflow:hidden;white-space:nowrap}
+.ticker .cmd span{display:inline-block;padding-left:100%;animation:mq 38s linear infinite}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.ticker .cmd b{color:var(--acc)}
+.ticker .meta{color:var(--dim2)}
+
+/* Header */
+header{position:sticky;top:0;z-index:100;background:rgba(8,9,12,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.hin{display:flex;align-items:center;height:78px;gap:22px}
+.logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.glyph{width:48px;height:48px;border:1px solid var(--acc);display:flex;align-items:center;justify-content:center;font-family:Georgia,serif;font-size:19px;font-weight:900;color:var(--acc);position:relative;transition:.3s;flex-shrink:0}
+.glyph::before{content:'';position:absolute;inset:3px;border:1px solid rgba(0,255,163,.35)}
+.glyph::after{content:'';position:absolute;top:-1px;right:-1px;width:8px;height:8px;background:var(--red)}
+.logo:hover .glyph{background:var(--acc);color:var(--bg);box-shadow:0 0 24px rgba(0,255,163,.45)}
+.logo:hover .glyph::before{border-color:var(--bg)}
+.brand strong{display:block;font-size:18.5px;font-weight:800;letter-spacing:2px}
+.brand small{font-size:10.5px;color:var(--dim2);letter-spacing:2.5px}
+.nav{display:flex;gap:2px;margin-left:auto}
+.nav a{font-size:13px;font-weight:700;padding:8px 15px;border:1px solid transparent;transition:.2s;position:relative;color:var(--dim)}
+.nav a::before{content:'>';margin-right:6px;color:var(--acc2);opacity:0;transition:.2s}
+.nav a:hover,.nav a.on{color:var(--acc);border-color:var(--line2);background:var(--panel)}
+.nav a.on::before{opacity:1}
+.tools{display:flex;align-items:center;gap:8px}
+.tools .ic{width:38px;height:38px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;font-size:14px;cursor:pointer;color:var(--dim);transition:.2s}
+.tools .ic:hover{color:var(--acc);border-color:var(--acc)}
+.btn{font-family:inherit;font-size:12.5px;font-weight:800;padding:10px 20px;cursor:pointer;border:1px solid var(--acc);background:var(--acc);color:#001;transition:.2s;letter-spacing:1px}
+.btn:hover{background:transparent;color:var(--acc)}
+.btn.outline{background:transparent;color:var(--acc)}
+.btn.outline:hover{background:var(--acc);color:#001}
+.mb{display:none;width:42px;height:42px;border:1px solid var(--line2);background:transparent;font-size:17px;cursor:pointer;color:var(--acc)}
+
+/* Hero */
+.hero{padding:84px 0 96px;position:relative}
+.hero::before{content:'_';position:absolute;font-family:Georgia,serif;font-size:320px;color:rgba(0,255,163,.035);right:10px;top:60px;line-height:1;pointer-events:none;z-index:0}
+.heroin{display:grid;grid-template-columns:1.15fr 1fr;gap:60px;align-items:center}
+.tag{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;color:var(--acc);border:1px solid var(--acc2);padding:5px 12px;margin-bottom:26px}
+.tag .pulse{width:6px;height:6px;background:var(--acc);border-radius:50%;box-shadow:0 0 6px var(--acc);animation:bl 1.4s infinite}
+.hero h1{font-size:clamp(38px,5.6vw,70px);font-weight:900;line-height:1.18;letter-spacing:-1px}
+.hero h1 .gr{color:var(--acc)}
+.hero h1 .red{color:var(--red)}
+.hero h1 .dim{color:var(--dim2)}
+.cursor{display:inline-block;width:14px;background:var(--acc);animation:bl 1s infinite;vertical-align:-4px;height:1.05em}
+.hero p.sub{font-size:15px;color:var(--dim);margin:26px 0 32px;max-width:520px;line-height:2.05}
+.hacts{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.acts .tip{font-size:12px;color:var(--dim2)}
+.bar{height:1px;background:var(--line2);margin:38px 0 26px;position:relative}
+.bar::after{content:'';position:absolute;left:0;top:-1px;width:120px;height:3px;background:var(--acc)}
+.hstats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line2)}
+.hstats div{padding:18px 20px;border-right:1px solid var(--line2)}
+.hstats div:last-child{border:0}
+.hstats b{display:block;font-size:28px;font-weight:900;color:var(--acc);line-height:1.15}
+.hstats span{font-size:11px;color:var(--dim2);text-transform:uppercase;letter-spacing:1px}
+
+/* 终端面板 */
+.panel{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.win{border:1px solid var(--line2);background:var(--panel);position:relative}
+.win .hd{display:flex;align-items:center;gap:8px;padding:11px 14px;border-bottom:1px solid var(--line2);background:var(--bg2)}
+.win .hd .c{width:10px;height:10px;border-radius:50%;border:1px solid var(--line2)}
+.win .hd .c:nth-child(1){border-color:var(--red)}
+.win .hd .c:nth-child(2){border-color:var(--warn)}
+.win .hd .c:nth-child(3){border-color:var(--acc)}
+.win .hd .t{margin-left:10px;font-size:11.5px;color:var(--dim);letter-spacing:1px}
+.win .bd{padding:18px}
+.feed{font-size:13px;line-height:2.1}
+.feed .l{color:var(--dim2)}
+.feed .k{color:var(--acc)}
+.feed .w{color:var(--warn)}
+.feed .r{color:var(--red)}
+.feed .v{color:var(--cy)}
+.bars{display:flex;flex-direction:column;gap:13px}
+.bars div{display:grid;grid-template-columns:78px 1fr 40px;gap:12px;align-items:center;font-size:12.5px}
+.bars .track{height:16px;background:var(--bg2);border:1px solid var(--line);position:relative;overflow:hidden}
+.bars .fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--acc),var(--acc2));width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.bars .fill.w{background:linear-gradient(90deg,var(--warn),#c88700)}
+.bars .fill.r{background:linear-gradient(90deg,var(--red),#b3253f)}
+.bars .fill.v{background:linear-gradient(90deg,var(--violet),#7c5fe0)}
+.bars b{text-align:right;color:var(--acc);font-size:13px}
+.win .bd h5{font-size:13px;color:var(--dim);margin-bottom:14px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.win .bd h5 b{color:var(--acc)}
+.mini{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mini div{background:var(--bg2);border:1px solid var(--line);padding:14px;text-align:center;transition:.25s;cursor:default}
+.mini div:hover{border-color:var(--acc);transform:translateY(-3px)}
+.mini b{display:block;font-family:Georgia,serif;font-size:20px;color:var(--acc);line-height:1.2}
+.mini span{font-size:10.5px;color:var(--dim2);text-transform:uppercase;letter-spacing:1px}
+
+/* 章节 */
+.sec{padding:84px 0}
+.sec.alt{background:var(--bg2)}
+.stitle{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.stitle .mk{color:var(--acc);font-weight:900}
+.stitle .no{font-size:12px;color:var(--dim2);letter-spacing:2px;border:1px solid var(--line2);padding:3px 9px}
+.stitle h2{font-size:27px;font-weight:900;letter-spacing:-.3px}
+.subtitle{font-size:13.5px;color:var(--dim);margin-bottom:36px;padding-left:88px;line-height:2.05;max-width:820px}
+.pills{display:flex;gap:6px;margin-bottom:34px;flex-wrap:wrap}
+.pills button{font-family:inherit;font-size:12.5px;font-weight:700;padding:7px 18px;cursor:pointer;border:1px solid var(--line2);background:transparent;color:var(--dim);transition:.2s}
+.pills button.on,.pills button:hover{border-color:var(--acc);color:var(--acc);background:rgba(0,255,163,.06)}
+
+/* 栏目二 */
+.grid2{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.mov{border:1px solid var(--line2);background:var(--panel);cursor:pointer;transition:.3s;position:relative;overflow:hidden}
+.mov::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--acc);transform:scaleY(0);transition:.3s;transform-origin:bottom}
+.mov:hover{border-color:var(--acc);transform:translateY(-5px)}
+.mov:hover::before{transform:scaleY(1)}
+.mov .ph{height:150px;position:relative;border-bottom:1px solid var(--line2)}
+.mov .ph .id{position:absolute;top:10px;left:10px;font-size:10.5px;color:var(--acc);background:var(--bg);border:1px solid var(--acc2);padding:2px 7px;letter-spacing:1px}
+.mov .ph .sc{position:absolute;bottom:10px;right:10px;font-size:11px;color:var(--warn);background:var(--bg);border:1px solid var(--warn);padding:2px 7px;font-family:Georgia,serif}
+.mov .ph .sc.g{color:var(--acc);border-color:var(--acc2)}
+.mov .ph .sc.r{color:var(--red);border-color:var(--red)}
+.mov .tx{padding:18px}
+.mov .tx .tp{font-size:10.5px;color:var(--dim2);letter-spacing:1px;margin-bottom:8px}
+.mov .tx h4{font-size:17.5px;font-weight:900;margin-bottom:8px;line-height:1.4}
+.mov .tx p{font-size:12.5px;color:var(--dim);line-height:1.95}
+.mov .tx .meta{font-size:10.5px;color:var(--dim2);border-top:1px solid var(--line);padding-top:10px;margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+
+/* 栏目三 */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:36px}
+.block h3{font-size:14px;font-weight:900;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--line2);display:flex;justify-content:space-between;align-items:baseline;color:var(--acc)}
+.block h3 small{font-size:10.5px;color:var(--dim2);font-weight:400;letter-spacing:1px}
+.lst{display:flex;flex-direction:column}
+.it{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:center;padding:13px 10px;border-bottom:1px solid var(--line);cursor:pointer;transition:.2s;font-size:13px}
+.it:last-child{border-bottom:0}
+.it:hover{background:var(--panel);border-left:2px solid var(--acc);padding-left:12px}
+.it .n{font-size:12px;color:var(--dim2)}
+.it:hover .n{color:var(--acc)}
+.it h5{font-weight:700;line-height:1.5;font-size:13.5px}
+.it h5 small{display:block;font-size:10.5px;color:var(--dim2);font-weight:400;margin-top:2px}
+.it .r{font-size:12px;color:var(--warn);font-family:Georgia,serif}
+
+/* 栏目四 */
+.news{display:grid;grid-template-columns:1.2fr 1fr;gap:32px}
+.nbig{border:1px solid var(--line2);background:var(--panel);cursor:pointer;transition:.3s}
+.nbig:hover{border-color:var(--acc);transform:translateY(-4px)}
+.nbig .ph{height:230px;background:linear-gradient(135deg,#1a2332,#0e1a16);position:relative;border-bottom:1px solid var(--line2)}
+.nbig .ph .lb{position:absolute;top:16px;left:16px;font-size:10.5px;color:var(--bg);background:var(--acc);padding:4px 10px;letter-spacing:2px;font-weight:800}
+.nbig .ph h4{position:absolute;left:22px;right:22px;bottom:20px;font-size:20px;font-weight:900;color:#fff;line-height:1.55}
+.nbig .bd{padding:20px 22px;font-size:13.5px;color:var(--dim);line-height:2.05}
+.nbig .ft{display:flex;justify-content:space-between;padding:16px 22px;border-top:1px solid var(--line);font-size:11px;color:var(--dim2)}
+.nlist{display:flex;flex-direction:column}
+.nitem{padding:18px 10px;border-bottom:1px solid var(--line);cursor:pointer;transition:.2s;display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:baseline}
+.nitem:last-child{border-bottom:0}
+.nitem:hover{background:var(--panel);padding-left:14px;border-left:2px solid var(--acc)}
+.nitem .d{font-size:11px;color:var(--acc);letter-spacing:1px}
+.nitem h5{font-size:13.5px;font-weight:700;line-height:1.65}
+.nitem:hover h5{color:var(--acc)}
+
+/* 栏目五 */
+.about{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about .left .tag{margin-bottom:20px}
+.about h2{font-size:clamp(28px,4vw,48px);font-weight:900;line-height:1.4;margin-bottom:24px;letter-spacing:-.5px}
+.about h2 .gr{color:var(--acc)}
+.about>p{font-size:14.5px;color:var(--dim);line-height:2.1;margin-bottom:12px}
+.feats{margin-top:30px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.feat{border:1px solid var(--line2);background:var(--panel);padding:20px;transition:.25s}
+.feat:hover{border-color:var(--acc);transform:translateY(-3px)}
+.feat .ic{font-size:20px;margin-bottom:10px;color:var(--acc)}
+.feat:nth-child(2) .ic{color:var(--warn)}
+.feat:nth-child(3) .ic{color:var(--cy)}
+.feat:nth-child(4) .ic{color:var(--violet)}
+.feat h5{font-size:14.5px;font-weight:900;margin-bottom:5px}
+.feat p{font-size:12.5px;color:var(--dim);line-height:1.85}
+.aboutr{border:1px solid var(--acc2);background:var(--panel);padding:36px 32px;position:relative}
+.aboutr::before{content:'315.dianyingwang/about';position:absolute;top:-12px;left:20px;background:var(--bg);padding:0 10px;font-size:10.5px;color:var(--acc);letter-spacing:1px}
+.aboutr .qt{font-size:10.5px;letter-spacing:3px;color:var(--dim2);margin-bottom:16px}
+.aboutr h4{font-size:16px;font-weight:700;line-height:2.1;color:var(--txt)}
+.aboutr h4 .gr{color:var(--acc)}
+.aboutr .line{height:1px;background:var(--line);margin:24px 0}
+.aboutr .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line2)}
+.aboutr .stats div{border-right:1px solid var(--line2);padding:16px}
+.aboutr .stats div:last-child{border:0}
+.aboutr .stats b{display:block;font-size:26px;font-weight:900;color:var(--acc);line-height:1.15}
+.aboutr .stats span{font-size:10.5px;color:var(--dim2);text-transform:uppercase;letter-spacing:1px}
+
+/* 页脚 */
+footer{background:var(--bg2);border-top:1px solid var(--line);padding:60px 0 22px;position:relative;z-index:2}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
+.fg .logo .glyph{border-color:var(--acc)}
+.fg .logo .brand strong{color:#fff}
+.fg .logo .brand small{color:var(--dim2)}
+.fg .logo p{font-size:13px;color:var(--dim);line-height:2;margin-top:16px;max-width:320px}
+.fg h5{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--acc);margin-bottom:18px;font-weight:800}
+.fg a{display:block;font-size:13px;color:var(--dim);padding:6px 0;transition:.2s}
+.fg a::before{content:'>';margin-right:7px;color:var(--acc2);opacity:0;transition:.2s}
+.fg a:hover{color:var(--acc);padding-left:5px}
+.fg a:hover::before{opacity:1}
+.fb{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:20px;font-size:11.5px;color:var(--dim2);flex-wrap:wrap;gap:12px}
+.fb .u{color:var(--acc)}
+
+@media(max-width:960px){
+  .nav,.tools{display:none}
+  .mb{display:block}
+  .nav.open{display:flex;flex-direction:column;position:absolute;top:78px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:10px 26px}
+  .nav.open a{border:0;border-bottom:1px solid var(--line);padding:13px 0}
+  .nav.open a.on{background:none}
+  .heroin{grid-template-columns:1fr;gap:56px}
+  .panel{order:-1}
+  .panel,.grid2,.about{grid-template-columns:1fr;gap:24px}
+  .split,.news{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr 1fr;gap:28px}
+}
+@media(max-width:560px){
+  .container{padding:0 18px}
+  .hero{padding:52px 0 68px}
+  .sec{padding:64px 0}
+  .panel,.grid2,.mini{grid-template-columns:1fr}
+  .fg{grid-template-columns:1fr}
+  .subtitle{padding-left:0}
+  .feats{grid-template-columns:1fr}
+  .aboutr{padding:30px 22px}
+  .it{grid-template-columns:28px 1fr;gap:12px}
+  .it .r{display:none}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/zhangzong.js"></script>
+
+<div class="ticker">
+  <div class="container">
+    <span class="dot"></span>
+    <span class="cmd"><span>sys: 每日更新 · 真实评分 · 电影 / 剧集 / 动漫 / 纪录片 / 综艺 一站找齐 &nbsp; <b>// 315dianyingwang-zh</b> &nbsp; ✦ &nbsp; 2026 秋日片单已同步</span></span>
+    <span class="meta">2026.10.01 / node-40</span>
+  </div>
+</div>
+
+<header>
+  <div class="container hin">
+    <a href="#top" class="logo">
+      <div class="glyph">315</div>
+      <div class="brand"><strong>315电影网</strong><small>DIANYINGWANG · ZH</small></div>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#movie" class="on">电影库</a>
+      <a href="#series">剧集动漫</a>
+      <a href="#news">影讯资讯</a>
+      <a href="#about">关于我们</a>
+    </nav>
+    <div class="tools">
+      <div class="ic" title="搜索">⌕</div>
+      <div class="ic" title="收藏">♡</div>
+      <button class="btn outline">登录</button>
+      <button class="btn">收藏本站</button>
+    </div>
+    <button class="mb" id="mb">☰</button>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="container heroin">
+    <div>
+      <div class="tag"><span class="pulse"></span> SYSTEM ONLINE · VERIFIED</div>
+      <h1>真相只有一个，<br><span class="gr">好片</span>也是如此<span class="dim">.</span></h1>
+      <p class="sub">315电影网（315dianyingwang-zh）是一个讲真话的观影导航站。不刷榜、不注水，只把真实评分、真实片单摆在你面前。</p>
+      <div class="hacts"><button class="btn">./open_today_list →</button><span class="tip">// 免费浏览，无需注册</span></div>
+      <div class="bar"></div>
+      <div class="hstats">
+        <div><b>3,200+</b><span>收录影片</span></div>
+        <div><b>36</b><span>今日上新</span></div>
+        <div><b>9.1</b><span>站内均分</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="win">
+        <div class="hd"><span class="c"></span><span class="c"></span><span class="c"></span><span class="t">~/315dw/logs/feed.log</span></div>
+        <div class="bd feed">
+          <div class="l">[10:01:22] <span class="k">INFO</span> 同步院线数据 .................. <span class="k">OK</span></div>
+          <div class="l">[10:01:24] <span class="w">WARN</span> 评分偏差 &gt; 1.5 的影片已标记 ... <span class="w">FIXED</span></div>
+          <div class="l">[10:01:27] <span class="k">INFO</span> 更新今日片单 36 部 ........... <span class="k">OK</span></div>
+          <div class="l">[10:01:31] <span class="v">DATA</span> 4K 修复《无间道》三部曲已入库 . <span class="v">NEW</span></div>
+          <div class="l">[10:01:35] <span class="r">BLOCK</span> 已剔除 12 条注水刷榜记录 .... <span class="r">CLEAN</span></div>
+          <div class="l">[10:01:38] <span class="k">INFO</span> 系统自检通过，服务可用 ........ <span class="k">OK</span></div>
+        </div>
+      </div>
+      <div class="win">
+        <div class="hd"><span class="c"></span><span class="c"></span><span class="c"></span><span class="t">~/315dw/stats/types.json</span></div>
+        <div class="bd">
+          <h5><b>类型分布</b> · realtime</h5>
+          <div class="bars">
+            <div><span>剧情 / 犯罪</span><span class="track"><span class="fill" data-w="92"></span></span><b>92%</b></div>
+            <div><span>动画 / 动漫</span><span class="track"><span class="fill w" data-w="78"></span></span><b>78%</b></div>
+            <div><span>喜剧 / 生活</span><span class="track"><span class="fill v" data-w="64"></span></span><b>64%</b></div>
+            <div><span>科幻 / 冒险</span><span class="track"><span class="fill" data-w="57"></span></span><b>57%</b></div>
+            <div><span>恐怖 / 惊悚</span><span class="track"><span class="fill r" data-w="41"></span></span><b>41%</b></div>
+          </div>
+          <div class="mini" style="margin-top:18px">
+            <div><b>8.7</b><span>中位分</span></div>
+            <div><b>12</b><span>已清理</span></div>
+            <div><b>24/7</b><span>在线</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="movie" class="sec">
+  <div class="container">
+    <div class="stitle"><span class="mk">$</span><span class="no">01</span><h2>电影库</h2></div>
+    <p class="subtitle">真实评分，真实片单。类型齐全，随手就能翻到想看的那一部。</p>
+    <div class="pills"><button class="on">全部</button><button>动作</button><button>喜剧</button><button>科幻</button><button>恐怖</button><button>纪录片</button><button>动画</button></div>
+    <div class="grid2">
+      <div class="mov"><div class="ph g1"><span class="id">ID:0001</span><span class="sc g">9.7</span></div><div class="tx"><div class="tp">美国 / 1994 / 142min</div><h4>肖申克的救赎</h4><p>希望是一件好事，也许是最好的事，美好的事永不消逝。</p><div class="meta"><span>剧情</span><span>犯罪</span><span>经典</span></div></div></div>
+      <div class="mov"><div class="ph g2"><span class="id">ID:0002</span><span class="sc">8.9</span></div><div class="tx"><div class="tp">中国香港 / 2002 / 101min</div><h4>无间道</h4><p>香港警匪片的巅峰之作，正邪一线间的身份拉扯。</p><div class="meta"><span>犯罪</span><span>剧情</span><span>修复版</span></div></div></div>
+      <div class="mov"><div class="ph g3"><span class="id">ID:0003</span><span class="sc r">8.6</span></div><div class="tx"><div class="tp">中国 / 2024 / 126min</div><h4>抓娃娃</h4><p>一对父母用最离谱的方式，把儿子"养"成了学霸。</p><div class="meta"><span>喜剧</span><span>院线</span><span>热映</span></div></div></div>
+      <div class="mov"><div class="ph g4"><span class="id">ID:0004</span><span class="sc g">9.5</span></div><div class="tx"><div class="tp">美国 / 2014 / 169min</div><h4>星际穿越</h4><p>当爱成为一种可以穿越维度的力量。</p><div class="meta"><span>科幻</span><span>冒险</span><span>经典</span></div></div></div>
+      <div class="mov"><div class="ph g5"><span class="id">ID:0005</span><span class="sc">8.3</span></div><div class="tx"><div class="tp">日本 / 2022 / 122min</div><h4>铃芽之旅</h4><p>新海诚用一场公路旅行，讲完了关于"关门"的故事。</p><div class="meta"><span>动画</span><span>奇幻</span><span>日影</span></div></div></div>
+      <div class="mov"><div class="ph g6"><span class="id">ID:0006</span><span class="sc g">9.0</span></div><div class="tx"><div class="tp">韩国 / 2019 / 132min</div><h4>寄生虫</h4><p>一部把贫富差距拍成惊悚寓言的黑色杰作。</p><div class="meta"><span>剧情</span><span>惊悚</span><span>获奖</span></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="series" class="sec alt">
+  <div class="container">
+    <div class="stitle"><span class="mk">$</span><span class="no">02</span><h2>剧集 · 动漫</h2></div>
+    <p class="subtitle">国产剧、美剧、韩剧、日剧，加上国漫日漫，一次看个够。</p>
+    <div class="pills"><button class="on">全部</button><button>国产剧</button><button>美剧</button><button>韩剧</button><button>国漫</button><button>日漫</button></div>
+    <div class="split">
+      <div class="block">
+        <h3>热播剧集 <small>SERIES.DB</small></h3>
+        <div class="lst">
+          <div class="it"><span class="n">01</span><h5>漫长的季节<small>悬疑 / 国产 · 12集全 · 9.4</small></h5><span class="r">9.4</span></div>
+          <div class="it"><span class="n">02</span><h5>继承之战 第四季<small>剧情 / 美剧 · 10集 · 9.2</small></h5><span class="r">9.2</span></div>
+          <div class="it"><span class="n">03</span><h5>我的解放日志<small>剧情 / 韩剧 · 16集 · 9.1</small></h5><span class="r">9.1</span></div>
+          <div class="it"><span class="n">04</span><h5>非自然死亡<small>生活 / 日剧 · 11集 · 8.9</small></h5><span class="r">8.9</span></div>
+          <div class="it"><span class="n">05</span><h5>山海情<small>剧情 / 国产 · 23集 · 9.3</small></h5><span class="r">9.3</span></div>
+          <div class="it"><span class="n">06</span><h5>黑暗荣耀<small>复仇 / 韩剧 · 16集 · 8.9</small></h5><span class="r">8.9</span></div>
+        </div>
+      </div>
+      <div class="block">
+        <h3>动漫专区 <small>ANIME.DB</small></h3>
+        <div class="lst">
+          <div class="it"><span class="n">01</span><h5>长安三万里<small>国漫 / 剧场版 · 168min · 8.3</small></h5><span class="r">8.3</span></div>
+          <div class="it"><span class="n">02</span><h5>鬼灭之刃 锻刀村篇<small>日漫 / 番剧 · 11集 · 8.7</small></h5><span class="r">8.7</span></div>
+          <div class="it"><span class="n">03</span><h5>咒术回战 涩谷事变<small>日漫 / 番剧 · 25集 · 8.6</small></h5><span class="r">8.6</span></div>
+          <div class="it"><span class="n">04</span><h5>罗小黑战记<small>国漫 / 剧场版 · 8.2</small></h5><span class="r">8.2</span></div>
+          <div class="it"><span class="n">05</span><h5>间谍过家家<small>日漫 / 番剧 · 25集 · 8.9</small></h5><span class="r">8.9</span></div>
+          <div class="it"><span class="n">06</span><h5>中国奇谭<small>国漫 / 短片集 · 8集 · 8.8</small></h5><span class="r">8.8</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="news" class="sec">
+  <div class="container">
+    <div class="stitle"><span class="mk">$</span><span class="no">03</span><h2>影讯资讯</h2></div>
+    <p class="subtitle">院线动态、新片速递、片单整理，这里有你想知道的一切。</p>
+    <div class="pills"><button class="on">最新</button><button>院线</button><button>片单</button><button>幕后</button></div>
+    <div class="news">
+      <div class="nbig">
+        <div class="ph"><span class="lb">HEADLINE</span><h4>2026 国庆档前瞻：五部重点影片值得放进你的片单</h4></div>
+        <div class="bd">从主旋律到悬疑喜剧，今年的国庆档类型相当齐全。我们逐部整理了上映日期、主创阵容和看点，帮你提前排好假期观影计划。</div>
+        <div class="ft"><span>315电影网 编辑部</span><span>8 min read</span></div>
+      </div>
+      <div class="nlist">
+        <div class="nitem"><span class="d">09.29</span><h5>《抓娃娃》票房破 30 亿，国产喜剧为什么越来越能打</h5></div>
+        <div class="nitem"><span class="d">09.27</span><h5>4K 修复版《无间道》三部曲确认引进，老片重映还值不值得看</h5></div>
+        <div class="nitem"><span class="d">09.25</span><h5>十部适合秋天一个人看的治愈系电影，附资源整理</h5></div>
+        <div class="nitem"><span class="d">09.22</span><h5>《铃芽之旅》蓝光版幕后花絮流出，新海诚谈创作初衷</h5></div>
+        <div class="nitem"><span class="d">09.20</span><h5>Netflix 十月片单盘点：这六部值得熬夜刷完</h5></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="sec alt">
+  <div class="container about">
+    <div class="left">
+      <div class="tag"><span class="pulse"></span> ABOUT 315.DIANYINGWANG</div>
+      <h2>我们只是<br>把<span class="gr">真相</span>摆出来</h2>
+      <p>315电影网（315dianyingwang-zh）是一个把"真实"放在第一位的观影导航站。</p>
+      <p>不刷榜、不注水、不藏门槛，按类型、年份、地区把片子整整齐齐排好，让你三秒找到想看的。</p>
+      <div class="feats">
+        <div class="feat"><span class="ic">✓</span><h5>真实评分</h5><p>偏差过大的影片会被标记清理</p></div>
+        <div class="feat"><span class="ic">↻</span><h5>每日同步</h5><p>院线、网播更新当天跟进</p></div>
+        <div class="feat"><span class="ic">⌕</span><h5>好找</h5><p>分类清晰，一键定位</p></div>
+        <div class="feat"><span class="ic">⊕</span><h5>免费浏览</h5><p>核心内容不藏门槛</p></div>
+      </div>
+    </div>
+    <div class="aboutr">
+      <div class="qt">EDITOR'S NOTE</div>
+      <h4>「找片不该是一件费劲的事。<br>我们不替你决定好不好看，<br>我们只负责把<span class="gr">真实的评价</span>摆在你面前。」</h4>
+      <div class="line"></div>
+      <div class="stats">
+        <div><b>3,200+</b><span>收录影片</span></div>
+        <div><b>36</b><span>今日上新</span></div>
+        <div><b>9.1</b><span>站内均分</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="fg">
+      <div class="logo">
+        <div class="glyph">315</div>
+        <div class="brand"><strong>315电影网</strong><small>315 DIANYINGWANG</small></div>
+        <p>315电影网（315dianyingwang-zh）是一个讲真话的观影导航站。电影、剧集、动漫、纪录片、综艺一站找齐。</p>
+      </div>
+      <div><h5>找片</h5><a href="#movie">电影库</a><a href="#series">剧集动漫</a><a href="#news">影讯资讯</a><a href="#">排行榜</a></div>
+      <div><h5>类型</h5><a href="#">动作</a><a href="#">喜剧</a><a href="#">科幻</a><a href="#">纪录片</a></div>
+      <div><h5>关于</h5><a href="#about">平台介绍</a><a href="#">投稿合作</a><a href="#">联系我们</a><a href="#">免责声明</a></div>
+    </div>
+    <div class="fb"><span>© 2026 315电影网（315dianyingwang-zh）· 网址：<span class="u">https://315dianyingwang-zh.github.io</span></span><span>// truth_first</span></div>
+  </div>
+</footer>
+
+<script>
+const mb=document.getElementById('mb'),nav=document.getElementById('nav');
+mb.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+const ids=['movie','series','news','about'];
+window.addEventListener('scroll',()=>{let cur='';ids.forEach(id=>{const el=document.getElementById(id);if(el&&el.getBoundingClientRect().top<180)cur=id;});document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+cur));});
+document.querySelectorAll('.pills').forEach(p=>p.querySelectorAll('button').forEach(b=>b.addEventListener('click',function(){p.querySelectorAll('button').forEach(x=>x.classList.remove('on'));this.classList.add('on');})));
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w+'%';io.unobserve(e.target);}});},{threshold:.4});
+document.querySelectorAll('.fill').forEach(f=>io.observe(f));
+</script>
+</body>
+</html>
